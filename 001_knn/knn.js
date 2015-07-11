@@ -46,6 +46,28 @@ KNN.prototype._majority = function(k, sortedCat) {
 		}
 	}
 	return Number(greatest);
+};
+
+KNN.prototype.predictSingle = function(vector){
+	var distances = this._distances(vector, this.points);
+	var sortedDistances = this._sorted(distances);
+	return this._majority(this.kSize, sortedDistances);
+};
+
+KNN.prototype.predict = function(vectorArr){
+	var self = this
+	return vectorArr.map(function(vector){
+		return self.predictSingle(vector);
+	});
+}
+
+KNN.prototype.score = function(testingData){
+	var self = this;
+	var count = 0;
+	testingData.forEach(function(datum){
+		if (datum[1] === self.predictSingle(datum[0])) count++
+	});
+	return count / testingData.length;
 }
 
 
