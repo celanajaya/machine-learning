@@ -7,5 +7,25 @@ function KMeans(options){
 	this.points = [];
 }
 
+KMeans.prototype.train = function(vectors) {
+	this.points = this.points.concat(vectors);
+};
+
+KMeans.prototype.clusters = function(){
+	return
+}
+
+KMeans.prototype._distance = function(vector1, vector2) {
+	return Math.sqrt(vector1.reduce(
+		function(prev, curr, index){
+			return prev + Math.pow(vector1[index] - vector2[index], 2) }, 0))
+};
+
+KMeans.prototype._max = function(arr, func) {
+	return arr.sort(function(prev, curr){
+		return func(curr) - func(prev);
+	})[0];
+};
+
 
 module.exports = KMeans

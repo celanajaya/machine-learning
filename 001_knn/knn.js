@@ -37,7 +37,7 @@ KNN.prototype._majority = function(k, sortedCat) {
 	var obj = {};
 	for (var i = 0; i < k; i++) {
 		if (!obj[sortedCat[i]]) obj[sortedCat[i]] = 1;
-		else obj[sortedCat[i]]++; 
+		else obj[sortedCat[i]]++;
 	}
 	var greatest = sortedCat[0]
 	for (key in obj) {
