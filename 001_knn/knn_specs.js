@@ -2,7 +2,7 @@
 var KNN = require('./knn');
 var expect = require('chai').expect;
 var mnist = require('../lib/mnist_reader');
-var writer = require('../lib/writer');
+// var writer = require('../lib/writer');
 var randomPoints = require('../lib/rand');
 /*randomPoints is a function.  You would use it like this:
 
@@ -79,7 +79,7 @@ describe('Testing the basic KNN functionality.', function(){
 		  However, if you implement these functions, it will be much easier to write predictSingle,
 		  and they do provide a useful way to break down the things that predictSingle will need to do.
 		*/
-		xdescribe('Optional helper functions to be used in predict and predictSingle', function(){ 
+		describe('Optional helper functions to be used in predict and predictSingle', function(){ 
 
 			/* The purpose of the function '_distance' is to find the Euclidean norm
 			   as between two vectors.
